@@ -1,0 +1,32 @@
+{
+  "name": "zdone-webextension",
+  "version": "0.1",
+  "description": "Chrome/Firefox extension helper to zdone.co",
+  "permissions": [
+    "declarativeContent",
+    "storage",
+    "tabs",
+    "https://www.zdone.co/",
+    "https://en.wikipedia.org/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://en.wikipedia.org/*"],
+      "js": ["lib/jquery-3.5.1.min.js", "follow.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["lib/jquery-3.5.1.min.js", "background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "512": "images/favicon.png"
+    }
+  },
+  "icons": {
+    "512": "images/favicon.png"
+  },
+  "manifest_version": 2
+}
