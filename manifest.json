@@ -5,7 +5,6 @@
   "permissions": [
     "declarativeContent",
     "storage",
-    "tabs",
     "https://www.zdone.co/",
     "https://en.wikipedia.org/"
   ],
