@@ -3,7 +3,6 @@
   "version": "0.1",
   "description": "Chrome/Firefox extension helper to zdone.co",
   "permissions": [
-    "declarativeContent",
     "storage",
     "https://www.zdone.co/",
     "https://en.wikipedia.org/"
