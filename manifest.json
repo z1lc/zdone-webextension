@@ -4,27 +4,33 @@
   "description": "Chrome/Firefox extension helper to zdone.co",
   "permissions": [
     "storage",
-    "https://www.zdone.co/",
-    "https://en.wikipedia.org/"
+    "https://www.zdone.co/*",
+    "https://en.wikipedia.org/*",
+    "activeTab",
+    "webRequest"
   ],
   "content_scripts": [
     {
-      "matches": ["https://en.wikipedia.org/*"],
-      "js": ["lib/jquery-3.5.1.min.js", "follow.js"]
+      "matches": [
+        "https://en.wikipedia.org/*"
+      ],
+      "js": ["jquery-3.5.1.min.js", "follow.js"]
     }
   ],
-  "background": {
-    "scripts": ["lib/jquery-3.5.1.min.js", "background.js"],
-    "persistent": false
+  "icons": {
+    "512": "images/favicon.png"
   },
-  "page_action": {
+  "browser_action": {
+    "browser_style": true,
     "default_popup": "popup.html",
     "default_icon": {
       "512": "images/favicon.png"
     }
   },
-  "icons": {
-    "512": "images/favicon.png"
+  "applications": {
+    "gecko": {
+      "id": "webextension-team@zdone.co"
+    }
   },
   "manifest_version": 2
 }
