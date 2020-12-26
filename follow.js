@@ -5,7 +5,7 @@ chrome.storage.sync.get("apiKey", function (items) {
     let pageName = window.location.href.split('/').pop();
     $.get(`https://www.zdone.co/api/${items.apiKey}/follow/${pageName}/`, function (data) {
       var button = document.createElement("button");
-      var css = "position: absolute; top: 10px; right: 10px; z-index: 1000;"
+      var css = "position: fixed; top: 10px; left: 10px; z-index: 1000;"
       button.id = "zdone_wiki_follow"
 
       if (data === 'true') {
