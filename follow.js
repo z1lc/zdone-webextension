@@ -34,6 +34,20 @@ chrome.storage.sync.get("apiKey", function (items) {
   }
 })
 
+function highlightSelectedText() {
+  let sel, range;
+  sel = window.getSelection();
+  let originalText = sel.toString();
+  if (sel.rangeCount) {
+    range = sel.getRangeAt(0);
+    range.deleteContents();
+    const newMark = document.createElement("mark");
+    const newContent = document.createTextNode(originalText);
+    newMark.appendChild(newContent);
+    range.insertNode(newMark);
+  }
+}
+
 chrome.storage.sync.get("readwiseAccessToken", function (items) {
   if (items.readwiseAccessToken.length !== 50) {
     alert("The Readwise Access Token is invalid. Please set it by clicking the extension.")
@@ -67,6 +81,7 @@ chrome.storage.sync.get("readwiseAccessToken", function (items) {
             alert(`Received error response: ${xhr.responseText}`);
           })
           .done(function () {
+            highlightSelectedText();
             window.getSelection().removeAllRanges();
           })
       }
