@@ -53,7 +53,7 @@ chrome.storage.sync.get("readwiseAccessToken", function (items) {
     alert("The Readwise Access Token is invalid. Please set it by clicking the extension.")
   } else {
     document.addEventListener('keyup', function (event) {
-      if (event.key.toLowerCase() === 'a') {
+      if (event.key.toLowerCase() === 'h') {
         let maybe_selection = window.getSelection().toString();
         if (maybe_selection !== "") {
           $
